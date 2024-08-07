@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
     "react": "^18.3.1",

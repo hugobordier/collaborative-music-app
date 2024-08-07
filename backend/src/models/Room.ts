@@ -1,12 +1,15 @@
-import mongoose from 'mongoose';
+import mongoose, { Document, Schema } from 'mongoose';
 
-const roomSchema = new mongoose.Schema({
+export interface IRoom extends Document {
+  name: string;
+  owner: mongoose.Types.ObjectId;
+  members: mongoose.Types.ObjectId[];
+}
+
+const RoomSchema: Schema = new Schema({
   name: { type: String, required: true },
-  owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  users: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-  playlist: [{ type: String }], // Array of song IDs or URLs
+  owner: { type: mongoose.Types.ObjectId, ref: 'User', required: true },
+  members: [{ type: mongoose.Types.ObjectId, ref: 'User' }],
 });
 
-const Room = mongoose.model('Room', roomSchema);
-
-export default Room;
+export default mongoose.model<IRoom>('Room', RoomSchema);

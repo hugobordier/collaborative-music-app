@@ -1,16 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
+import AuthHandler from './AuthHandler';
 
-const App: React.FC = () => {
+const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/login" component={LoginPage} />
-      </Switch>
-    </Router>
+    <div>
+      <AuthHandler />
+      {/* Le reste de votre application */}
+    </div>
   );
 };
 
